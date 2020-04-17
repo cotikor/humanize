@@ -10,4 +10,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#app {
+	display:flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+	align-items:center;
+	height: 100vh;
+	width: 100%;
+}
+</style>

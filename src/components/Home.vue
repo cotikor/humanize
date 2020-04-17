@@ -1,25 +1,28 @@
 <template>
 	<div class="container">
-
+		<Navigation />
+		<Playlist />
 	</div>
 </template>
 
 <script>
-import Carousel from "./Carousel";
 import Playlist from "./Playlist";
+import Navigation from './Navigation'
 
 export default {
 	name: "Home",
 	components: {
-		Carousel,
 		Playlist,
+		Navigation
 	},
 };
 </script>
 
 <style scoped>
 .container {
+	background: black;
 	display: flex;
 	flex-flow: column nowrap;
+	height: 100vh;
 }
 </style>

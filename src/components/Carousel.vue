@@ -8,14 +8,14 @@
 				v-show="currentSlide === slide.id"
 			>
 				<section class="inner">
+					<img class="slide-img" :src="slide.image" :alt="slide.description" />
 					<section class="top-bar">
-						<button class="previousButton" @click="previous"></button>
+						<button class="previousButton" @click="previous" v-bind:class="{hide: currentSlide === 1}"></button>
 
 						<p>{{ slide.description }}</p>
 
-						<button class="nextButton" @click="next"></button>
+						<button class="nextButton" @click="next" v-bind:class="{hide: currentSlide === 4}"></button>
 					</section>
-					<img class="slide-img" :src="slide.image" :alt="slide.description" />
 				</section>
 			</section>
 		</transition-group>
@@ -26,6 +26,7 @@ import Background1 from "../assets/images/reach-out.jpg";
 import Background2 from "../assets/images/tents.jpg";
 import Background3 from "../assets/images/children-of-war.jpg";
 import Background4 from "../assets/images/girl.jpg";
+import Background5 from "../assets/images/flower.jpg";
 
 export default {
 	name: "Carousel",
@@ -66,18 +67,14 @@ export default {
 			this.slides = this.slides.concat(first);
 			if (this.currentSlide !== 4) {
 				this.currentSlide++;
-			} else {
-				this.currentSlide = 1;
-			}
+			} 
 		},
 		previous() {
 			const last = this.slides.pop();
 			this.slides = [last].concat(this.slides);
 			if (this.currentSlide !== 1) {
 				this.currentSlide--;
-			} else {
-				this.currentSlide = 4;
-			}
+			} 
 		},
 	},
 };
@@ -90,16 +87,19 @@ export default {
 	overflow: hidden;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: space-between;
+	justify-content: center;
 	background: black;
 	border: 1px solid pink;
 	max-width: 800px;
+	height: 100vh;
 }
+
 
 .slider-content .slide {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
+	
 }
 
 .slider-content .slide .inner {
@@ -120,8 +120,7 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 25vh;
-	border-bottom: 1px solid white;
+	height: 200px;
 }
 
 button::-moz-focus-inner {
@@ -136,11 +135,6 @@ button::-moz-focus-inner {
 	height: 32px;
 	cursor: pointer;
 	border: none;
-}
-
-.slider-content .slide .inner .top-bar .previousButton:hover,
-.nextButton:hover {
-	opacity: 0.5;
 }
 
 .slider-content .slide .inner .top-bar .previousButton {
@@ -161,13 +155,20 @@ button::-moz-focus-inner {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	text-align: justify;
+	text-align: center;
 }
 .slider-content .slide .inner .slide-img {
 	width: 100%;
-	height: auto;
+	height: 50%;
 	border-bottom: 1px solid white;
 }
+
+.hide, .hide:hover {
+	opacity: 0;
+	cursor: default;
+}
+
+
 
 /* Mobile Landscape */
 @media only screen and (min-width: 576px) {

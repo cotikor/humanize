@@ -19,11 +19,6 @@ export default new Router({
 			name: "Intro",
 			component: Carousel,
 		},
-		{		
-			path: "/playlist",
-			name: "Latest Talks",
-			component: Playlist,
-		},
 
 	],
 });
