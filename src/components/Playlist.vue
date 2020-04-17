@@ -1,29 +1,30 @@
 <template>
 	<div class="container">
-		<h1>Latest Talks</h1>
-
-		<a
+		<iframe id="player" type="text/html" :src="url + currentVid" frameborder="0"> </iframe>
+		<section
 			v-for="item in playlist"
 			:key="item.id"
-			:href="`https://youtu.be/${item.snippet.resourceId.videoId}`"
-			target="_blank"
-			rel="noopener noreferrer"
+			class="video-container"
+			@click="setVideo(item.snippet.resourceId.videoId)"
 		>
-			<section class="video-container">
-				<img :src="item.snippet.thumbnails.default.url" />
-				<h1>{{ item.snippet.title }}</h1>
-			</section>
-		</a>
+			<img :src="item.snippet.thumbnails.default.url" />
+			<h1>{{ item.snippet.title }}</h1>
+		</section>
 	</div>
 </template>
 
 <script>
 import axios from "axios";
+
 export default {
 	name: "Playlist",
 	data() {
 		return {
+			player: null,
 			playlist: null,
+			currentVid: "25bwiSikRsI",
+			url: `https://www.youtube.com/embed/`
+			
 		};
 	},
 	mounted() {
@@ -38,12 +39,17 @@ export default {
 			},
 		})
 			.then((res) => {
-				console.log("res", res.data.items);
 				this.playlist = res.data.items;
 			})
 			.catch((err) => {
 				console.log({ err });
 			});
+	},
+	methods: {
+		setVideo(id) {
+			this.currentVid = id;
+			console.log(this.url)
+		},
 	},
 };
 </script>
@@ -51,9 +57,20 @@ export default {
 <style scoped>
 .container {
 	border: 1px solid red;
-	overflow: scroll;
+	overflow-y: scroll;
+	background-color: black;
+	color: white;
+}
+
+#player {
+	border: 1px solid white;
+	width: 100%;
 }
 .video-container {
-	border: 1px solid black;
+	border-bottom: 1px solid white;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+
 }
 </style>

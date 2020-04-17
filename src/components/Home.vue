@@ -1,7 +1,6 @@
 <template>
 	<div class="container">
-		<Carousel />
-		<Playlist />
+
 	</div>
 </template>
 
