@@ -71,6 +71,7 @@ export default {
 #player {
 	width: 100%;
 	height: auto;
+
 }
 
 .playlist-container{

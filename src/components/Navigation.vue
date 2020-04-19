@@ -42,25 +42,27 @@ nav {
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    background: white;
+    background: black;
     width: 100%;
-    padding: 1%;
 }
 
 nav a {
     text-decoration: none;
     width: 25%;
+    border: 1px solid black;
+    padding: 1%;
+
 }
 
 nav a .nav-section {
-    padding: 1%;
+    
 }
 
 nav a .nav-section h1 {
     text-align: center;
     	font-family: "Special Elite";
 
-    color: black;
+    color: white;
 }
 
 </style>

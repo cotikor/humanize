@@ -1,24 +1,31 @@
 <template>
 	<div class="slider-wrapper">
-		<transition-group class="slider-content" tag="section">
+		<!-- <transition-group class="slider-content" tag="section"> -->
 			<section
 				v-for="slide in slides"
 				class="slide"
 				:key="slide.id"
 				v-show="currentSlide === slide.id"
 			>
-				<section class="inner">
-					<img class="slide-img" :src="slide.image" :alt="slide.description" />
-					<section class="top-bar">
-						<button class="previousButton" @click="previous" v-bind:class="{hide: currentSlide === 1}"></button>
+				<img class="slide-img" :src="slide.image" :alt="slide.description" />
+				<section class="bottom-section">
+					<button
+						class="previousButton"
+						@click="previous"
+						v-bind:class="{ hide: currentSlide === 1 }"
+					></button>
 
-						<p>{{ slide.description }}</p>
+					<p>{{ slide.description }}</p>
 
-						<button class="nextButton" @click="next" v-bind:class="{hide: currentSlide === 4}"></button>
-					</section>
+					<button
+						class="nextButton"
+						@click="next"
+						v-bind:class="{ hide: currentSlide === 4 }"
+					></button>
 				</section>
+				<!-- </section> -->
 			</section>
-		</transition-group>
+		<!-- </transition-group> -->
 	</div>
 </template>
 <script>
@@ -67,14 +74,14 @@ export default {
 			this.slides = this.slides.concat(first);
 			if (this.currentSlide !== 4) {
 				this.currentSlide++;
-			} 
+			}
 		},
 		previous() {
 			const last = this.slides.pop();
 			this.slides = [last].concat(this.slides);
 			if (this.currentSlide !== 1) {
 				this.currentSlide--;
-			} 
+			}
 		},
 	},
 };
@@ -83,8 +90,8 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Special+Elite&display=swap");
 
 .slider-wrapper {
-	position: relative;
-	overflow: hidden;
+	/* position: relative; */
+	/* overflow: hidden; */
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -94,40 +101,26 @@ export default {
 	height: 100vh;
 }
 
-
-.slider-content .slide {
+ .slide {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	
+	justify-content: space-between;
+	border: 1px solid red;
 }
 
-.slider-content .slide .inner {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(0, 0, 0, 0.6);
-	padding: 0;
-	box-sizing: border-box;
-	width: 100%;
-}
-
-.slider-content .slide .inner .top-bar {
+ .slide .bottom-section {
 	padding: 2.5%;
+	border: 1px solid white;
+
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 200px;
 }
 
-button::-moz-focus-inner {
-	border: 0;
-}
-
-.slider-content .slide .inner .top-bar .previousButton,
+ .slide .bottom-section .previousButton,
 .nextButton {
 	z-index: 10;
 	background: url("../assets/images/arrow.png") no-repeat center center / 32px;
@@ -137,15 +130,15 @@ button::-moz-focus-inner {
 	border: none;
 }
 
-.slider-content .slide .inner .top-bar .previousButton {
+ .slide .bottom-section .previousButton {
 	left: 20px;
 	transform: rotateY(180deg);
 }
 
-.slider-content .slide .inner .top-bar .nextButton {
+ .slide .bottom-section .nextButton {
 	right: 20px;
 }
-.slider-content .slide .inner .top-bar p {
+ .slide .bottom-section p {
 	font-family: "Special Elite";
 	color: #ffffff;
 	font-size: 14px;
@@ -157,18 +150,16 @@ button::-moz-focus-inner {
 	justify-content: center;
 	text-align: center;
 }
-.slider-content .slide .inner .slide-img {
+ .slide .slide-img {
 	width: 100%;
-	height: 50%;
-	border-bottom: 1px solid white;
+	border: 1px solid white;
 }
 
-.hide, .hide:hover {
+.hide,
+.hide:hover {
 	opacity: 0;
 	cursor: default;
 }
-
-
 
 /* Mobile Landscape */
 @media only screen and (min-width: 576px) {
