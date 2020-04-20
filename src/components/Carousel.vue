@@ -1,6 +1,6 @@
 <template>
 	<div class="slider-wrapper">
-				<div class="slideNavButtons">
+		<div class="slideNavButtons">
 			<button
 				class="previousButton"
 				@click="previous"
@@ -26,14 +26,12 @@
 				<img class="slide-img" :src="slide.image" :alt="slide.description" />
 				<section class="bottom-section">
 					<p>{{ slide.description }}</p>
-							<router-link to="/home" v-show="slide.id === 4">
-			<button class="homeButton"></button>
-		</router-link>
+					<router-link to="/home" v-show="slide.id === 4">
+						<button class="homeButton"></button>
+					</router-link>
 				</section>
 			</section>
 		</transition-group>
-
-
 	</div>
 </template>
 <script>
@@ -94,7 +92,7 @@ export default {
 	overflow: hidden;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content:flex-start;
+	justify-content: flex-start;
 	align-items: center;
 	background: black;
 	height: 100vh;
@@ -106,8 +104,6 @@ export default {
 ::-moz-focus-inner {
 	border: 0;
 }
-
-
 
 @keyframes faded-pulse {
 	from {
@@ -146,14 +142,13 @@ export default {
 	background: white;
 }
 
-
 .slide-transition-enter-active {
-transition:  1s;
-opacity: 1;
+	transition: 1s;
+	opacity: 1;
 }
 .slide-transition-enter {
-transition:  1s;
-opacity: 0;
+	transition: 1s;
+	opacity: 0;
 }
 
 .slide {
@@ -188,7 +183,8 @@ opacity: 0;
 .slide .bottom-section p {
 	font-family: "Special Elite";
 	color: #ffffff;
-	font-size: 10px;
+	font-size: 14px;
+	line-height: 1;
 	width: 70%;
 	text-align: center;
 }
@@ -202,33 +198,71 @@ opacity: 0;
 		border-left: 1px solid white;
 		max-width: 50vw;
 		justify-content: flex-start;
-
 	}
 	.setContainer {
 		display: flex;
 		height: 100vh;
-
 	}
-	.slide .bottom-section{
+	.slide .bottom-section {
 		justify-content: flex-end;
 	}
 
 	.slide .bottom-section p {
-		font-size: 12px;
+		font-size: 14px;
 	}
-
 }
 
 /* Tablet Portrait */
 @media only screen and (min-width: 768px) {
+	.setContainer {
+		flex-flow: column nowrap;
+	}
 
+	.slide {
+		border: none;
+		max-width: 100vw;
+	}
+
+	.slide .bottom-section {
+		justify-content: center;
+	}
+	.slide .bottom-section p {
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.slide .slide-img{
+		width: 80%;
+	}
+	
 }
 
 /* Tablet Landscape */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 810px) {
+	.setContainer {
+		flex-flow: row nowrap;
+	}
+	.slide {
+		border-left: 1px solid white;
+		max-width: 50vw;
+		justify-content: flex-start;
+	}
+	
 }
 
+
 /* Desktop */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1024px) {
+
+	.slide .slide-img{
+		width: 100%;
+	}
+
+	.slide .bottom-section p {
+		font-size: 28px;
+	}
+
 }
+
+
 </style>

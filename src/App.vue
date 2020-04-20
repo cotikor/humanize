@@ -20,6 +20,7 @@ export default {
 	width: 100%;
 		animation-name: fade-in;
 	animation-duration: 4s;
+	background: black;
 }
 
 @keyframes fade-in {
@@ -30,4 +31,6 @@ export default {
 		opacity: 1;
 	}
 }
+
+
 </style>
