@@ -142,12 +142,11 @@ export default {
 	background: white;
 }
 
-.slide-transition-enter-active {
-	transition: 1s;
+.slide-transition-enter-to {
+	transition: 4s;
 	opacity: 1;
 }
 .slide-transition-enter {
-	transition: 1s;
 	opacity: 0;
 }
 
@@ -231,10 +230,9 @@ export default {
 		text-align: center;
 	}
 
-	.slide .slide-img{
+	.slide .slide-img {
 		width: 80%;
 	}
-	
 }
 
 /* Tablet Landscape */
@@ -247,22 +245,16 @@ export default {
 		max-width: 50vw;
 		justify-content: flex-start;
 	}
-	
 }
-
 
 /* Desktop */
 @media only screen and (min-width: 1024px) {
-
-	.slide .slide-img{
+	.slide .slide-img {
 		width: 100%;
 	}
 
 	.slide .bottom-section p {
 		font-size: 28px;
 	}
-
 }
-
-
 </style>

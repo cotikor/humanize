@@ -1,19 +1,20 @@
 <template>
-	<div class="container">
-		<Navigation />
-		<Playlist />
-	</div>
+		<div class="container">
+			<Navigation />
+			<Playlist />
+		</div>
+
 </template>
 
 <script>
 import Playlist from "./Playlist";
-import Navigation from './Navigation'
+import Navigation from "./Navigation";
 
 export default {
 	name: "Home",
 	components: {
 		Playlist,
-		Navigation
+		Navigation,
 	},
 };
 </script>
@@ -24,18 +25,7 @@ export default {
 	display: flex;
 	flex-flow: column nowrap;
 	height: 100vh;
-	animation-name: fade-in;
-	animation-duration: 3s;
 	width: 100%;
-}
-
-@keyframes fade-in {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
 
 

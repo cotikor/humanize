@@ -1,17 +1,25 @@
 <template>
 	<div class="main-container">
-		<iframe id="player" type="text/html" :src="url + currentVid" frameborder="0"> </iframe>
-		<section class="playlist-container">
-		<div
-			v-for="item in playlist"
-			:key="item.id"
-			class="video-container"
-			v-bind:class="{active: item.snippet.resourceId.videoId === currentVid}"
-			@click="setVideo(item.snippet.resourceId.videoId)"
+		<iframe
+			id="player"
+			type="text/html"
+			:src="url + currentVid"
+			frameborder="0"
 		>
-			<img :src="item.snippet.thumbnails.default.url" />
-			<h1>{{ item.snippet.title }}</h1>
-		</div>
+		</iframe>
+		<section class="playlist-container">
+			<div
+				v-for="item in playlist"
+				:key="item.id"
+				class="video-container"
+				v-bind:class="{
+					active: item.snippet.resourceId.videoId === currentVid,
+				}"
+				@click="setVideo(item.snippet.resourceId.videoId)"
+			>
+				<img :src="item.snippet.thumbnails.default.url" />
+				<h1>{{ item.snippet.title }}</h1>
+			</div>
 		</section>
 	</div>
 </template>
@@ -26,8 +34,7 @@ export default {
 			player: null,
 			playlist: null,
 			currentVid: "25bwiSikRsI",
-			url: `https://www.youtube.com/embed/`
-			
+			url: `https://www.youtube.com/embed/`,
 		};
 	},
 	mounted() {
@@ -51,7 +58,7 @@ export default {
 	methods: {
 		setVideo(id) {
 			this.currentVid = id;
-			console.log(this.url)
+			console.log(this.url);
 		},
 	},
 };
@@ -70,15 +77,22 @@ export default {
 	height: 99vh;
 }
 
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 #player {
 	width: 100%;
 	height: 50vh;
-		border: 1px solid white;
-
-
+	border: 1px solid white;
 }
 
-.playlist-container{
+.playlist-container {
 	overflow-y: scroll;
 	border: 1px solid white;
 	width: 100%;
@@ -91,7 +105,6 @@ export default {
 	flex-flow: row nowrap;
 	align-items: center;
 	cursor: pointer;
-	
 }
 
 .video-container:hover h1 {
@@ -100,22 +113,22 @@ export default {
 
 .video-container h1 {
 	width: 60%;
-	text-align:left;
+	text-align: left;
 	margin: 0 5%;
 	font-family: "Special Elite";
-	}
+}
 
 .video-container img {
 	border-right: 1px solid white;
 }
 
 .active {
-	opacity: .5;
+	opacity: 0.5;
 }
 
 /* Mobile Landscape */
 @media only screen and (min-width: 576px) {
-	#player{
+	#player {
 		width: 50%;
 		height: 100vh;
 	}
@@ -127,20 +140,19 @@ export default {
 
 /* Tablet Portrait */
 @media only screen and (min-width: 768px) {
-		#player{
+	#player {
 		width: 100%;
-	height: 50vh;
+		height: 50vh;
 	}
 
 	.playlist-container {
 		width: 100%;
 	}
-
 }
 
 /* Tablet Landscape */
 @media only screen and (min-width: 810px) {
-		#player{
+	#player {
 		width: 50%;
 		height: 100vh;
 	}
@@ -148,13 +160,6 @@ export default {
 	.playlist-container {
 		width: 50%;
 	}
-
 }
-
-
-/* Desktop */
-@media only screen and (min-width: 1024px) {
-}
-
 
 </style>

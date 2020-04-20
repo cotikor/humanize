@@ -12,25 +12,12 @@ export default {
 
 <style>
 #app {
-	display:flex;
+	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-end;
-	align-items:center;
+	align-items: center;
 	height: 100vh;
 	width: 100%;
-		animation-name: fade-in;
-	animation-duration: 4s;
 	background: black;
 }
-
-@keyframes fade-in {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-
 </style>
