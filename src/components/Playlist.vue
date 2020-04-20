@@ -72,13 +72,16 @@ export default {
 
 #player {
 	width: 100%;
-	height: auto;
+	height: 50vh;
+		border: 1px solid white;
+
 
 }
 
 .playlist-container{
 	overflow-y: scroll;
 	border: 1px solid white;
+	width: 100%;
 }
 
 .video-container {
@@ -108,6 +111,49 @@ export default {
 
 .active {
 	opacity: .5;
+}
+
+/* Mobile Landscape */
+@media only screen and (min-width: 576px) {
+	#player{
+		width: 50%;
+		height: 100vh;
+	}
+
+	.playlist-container {
+		width: 50%;
+	}
+}
+
+/* Tablet Portrait */
+@media only screen and (min-width: 768px) {
+		#player{
+		width: 100%;
+	height: 50vh;
+	}
+
+	.playlist-container {
+		width: 100%;
+	}
+
+}
+
+/* Tablet Landscape */
+@media only screen and (min-width: 810px) {
+		#player{
+		width: 50%;
+		height: 100vh;
+	}
+
+	.playlist-container {
+		width: 50%;
+	}
+
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
 }
 
 

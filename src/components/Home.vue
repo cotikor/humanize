@@ -26,6 +26,7 @@ export default {
 	height: 100vh;
 	animation-name: fade-in;
 	animation-duration: 3s;
+	width: 100%;
 }
 
 @keyframes fade-in {

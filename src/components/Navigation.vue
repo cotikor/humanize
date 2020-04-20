@@ -44,6 +44,7 @@ nav {
     align-items: center;
     background: black;
     width: 100%;
+    border-bottom: 1px solid white;
 }
 
 nav a {
@@ -67,4 +68,11 @@ nav a .nav-section h1 {
     color: white;
 }
 
+:focus {
+	outline: none;
+    opacity: .8;
+}
+::-moz-focus-inner {
+	border: 0;
+}
 </style>
