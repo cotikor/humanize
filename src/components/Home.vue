@@ -24,5 +24,18 @@ export default {
 	display: flex;
 	flex-flow: column nowrap;
 	height: 100vh;
+	animation-name: fade-in;
+	animation-duration: 3s;
 }
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+
 </style>

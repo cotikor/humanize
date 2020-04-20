@@ -58,6 +58,8 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Special+Elite&display=swap");
+
 .main-container {
 	background-color: black;
 	color: white;
@@ -85,13 +87,19 @@ export default {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+	cursor: pointer;
 	
+}
+
+.video-container:hover h1 {
+	font-weight: bold;
 }
 
 .video-container h1 {
 	width: 60%;
 	text-align:left;
 	margin: 0 5%;
+	font-family: "Special Elite";
 	}
 
 .video-container img {
@@ -101,5 +109,6 @@ export default {
 .active {
 	opacity: .5;
 }
+
 
 </style>

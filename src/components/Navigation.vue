@@ -54,7 +54,9 @@ nav a {
 
 }
 
-nav a .nav-section {
+nav a .nav-section:hover {
+    transform: scale(1.1);
+    font-weight: bold;
     
 }
 

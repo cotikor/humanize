@@ -10,12 +10,12 @@ Vue.use(Router);
 export default new Router({
 	routes: [
 		{
-			path: "/",
+			path: "/home",
 			name: "Home",
 			component: Home,
 		},
 		{
-			path: "/intro",
+			path: "/",
 			name: "Intro",
 			component: Carousel,
 		},
