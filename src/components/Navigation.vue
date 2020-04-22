@@ -68,7 +68,7 @@ nav a .nav-section:hover {
 nav a .nav-section h1 {
 	text-align: center;
 	font-family: "Special Elite";
-
+	font-size: 10px;
 	color: white;
 }
 
@@ -78,5 +78,12 @@ nav a .nav-section h1 {
 }
 ::-moz-focus-inner {
 	border: 0;
+}
+
+/* Mobile Landscape */
+@media only screen and (min-width: 576px) {
+nav a .nav-section h1 {
+font-size: 14px;
+}
 }
 </style>

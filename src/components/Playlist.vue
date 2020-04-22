@@ -74,7 +74,7 @@ export default {
 	flex-flow: column nowrap;
 	align-items: center;
 	justify-content: center;
-	height: 99vh;
+	height: 95vh;
 }
 
 @keyframes fade-in {
@@ -103,6 +103,7 @@ export default {
 	border-top: 1px solid white;
 	display: flex;
 	flex-flow: row nowrap;
+	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
 }
@@ -116,10 +117,13 @@ export default {
 	text-align: left;
 	margin: 0 5%;
 	font-family: "Special Elite";
+	font-size: 14px;
+	height: 100%;
+
 }
 
 .video-container img {
-	border-right: 1px solid white;
+	width: 30%;
 }
 
 .active {
@@ -128,38 +132,107 @@ export default {
 
 /* Mobile Landscape */
 @media only screen and (min-width: 576px) {
+	.main-container {
+		flex-flow: row nowrap;
+	}
+
 	#player {
-		width: 50%;
-		height: 100vh;
+		width: 60%;
+		max-height: 100vh;
 	}
 
 	.playlist-container {
-		width: 50%;
+		width: 40%;
+		max-height: 90vh;
 	}
 }
 
 /* Tablet Portrait */
 @media only screen and (min-width: 768px) {
+	.main-container {
+		flex-flow: column nowrap;
+	}
+
 	#player {
 		width: 100%;
-		height: 50vh;
+		max-height: auto;
 	}
 
 	.playlist-container {
 		width: 100%;
+		max-height: 60vh;
+
+	}
+
+	.video-container h1 {
+		font-size: 18px;
+		max-width: 70%;
+	}
+		.video-container img {
+		font-size: 18px;
+		max-width: 30%;
+		height: auto;
 	}
 }
+
+/* Large Mobile Landscape */
+@media only screen and (min-width: 810px) {
+	.main-container {
+		flex-flow: row nowrap;
+	}
+
+	#player {
+		width: 50%;
+		max-height: 100vh;
+	}
+
+	.playlist-container {
+		width: 50%;
+		max-height: 90vh;
+	}
+
+		.video-container h1 {
+		font-size: 14px;
+	}
+}
+
 
 /* Tablet Landscape */
-@media only screen and (min-width: 810px) {
+@media only screen and (min-width: 1024px) {
+	.main-container {
+		flex-flow: column nowrap;
+
+	}
 	#player {
-		width: 50%;
-		height: 100vh;
+		width: 100%;
+		max-height: 100vh;
 	}
 
 	.playlist-container {
-		width: 50%;
+		width: 100%;
+		max-height: 45vh;
+	}
+
+	.video-container h1 {
+		font-size: 24px;
 	}
 }
 
+/* Desktop */
+@media only screen and (min-width: 1300px) {
+		.main-container {
+		flex-flow: row nowrap;
+
+	}
+	
+	#player {
+		width: 70%;
+		height: 90vh;
+	}
+
+	.playlist-container {
+		width: 30%;
+		max-height: 90vh;
+	}
+}
 </style>
