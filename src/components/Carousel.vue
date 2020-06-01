@@ -1,37 +1,19 @@
 <template>
-	<div class="slider-wrapper">
-		<div class="slideNavButtons">
-			<button
-				class="previousButton"
-				@click="previous"
-				v-bind:class="{ active: slideSet === 1 }"
-			></button>
-			<button
-				class="nextButton"
-				@click="next"
-				v-bind:class="{ active: slideSet === 2 }"
-			></button>
-		</div>
-		<transition-group name="slide-transition" tag="div" class="setContainer">
+	<div class="slide-wrapper">
 			<section
 				v-for="slide in slides"
 				class="slide"
 				:key="slide.id"
-				v-show="
-					slideSet === 1
-						? slide.id === 1 || slide.id === 2
-						: slide.id === 3 || slide.id === 4
-				"
 			>
+				<p>{{ slide.description }}</p>
 				<img class="slide-img" :src="slide.image" :alt="slide.description" />
-				<section class="bottom-section">
-					<p>{{ slide.description }}</p>
-					<router-link to="/home" v-show="slide.id === 4">
-						<button class="homeButton"></button>
-					</router-link>
-				</section>
+						<router-link to="/home" v-show="slide.id === 4">
+			<button class="homeButton"></button>
+		</router-link>
 			</section>
-		</transition-group>
+
+
+
 	</div>
 </template>
 <script>
@@ -45,7 +27,7 @@ export default {
 	name: "Carousel",
 	data() {
 		return {
-			slideSet: 1,
+			id: 1,
 			slides: [
 				{
 					id: 1,
@@ -76,10 +58,10 @@ export default {
 
 	methods: {
 		next() {
-			this.slideSet = 2;
+			this.id++;
 		},
 		previous() {
-			this.slideSet = 1;
+			this.id--;
 		},
 	},
 };
@@ -87,15 +69,14 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Special+Elite&display=swap");
 
-.slider-wrapper {
-	position: relative;
-	overflow: hidden;
+.slide-wrapper {
 	display: flex;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
-	align-items: center;
+	align-items: space-around;
 	background: black;
-	height: 100vh;
 }
 
 :focus {
@@ -116,57 +97,17 @@ export default {
 	}
 }
 
-.slideNavButtons {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
-	background: black;
-	z-index: 20;
-}
-
-.slideNavButtons .previousButton,
-.nextButton {
-	/* border-radius: 50%; */
-	border: 1px solid white;
-	height: 5px;
-	width: 20px;
-	margin: 1px 2.5px;
-	outline: none;
-	background: black;
-}
-.slideNavButtons .active {
-	background: white;
-}
-
-.slide-transition-enter-to {
-	transition: 4s;
-	opacity: 1;
-}
-.slide-transition-enter {
-	opacity: 0;
-}
 
 .slide {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
 	justify-content: space-between;
+
 }
 
-.slide .bottom-section {
-	position: relative;
-	padding: 2.5%;
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-}
-.slide .bottom-section .homeButton {
+
+.slide .homeButton {
 	margin-top: 20px;
 	background: url("../assets/images/arrow.png") no-repeat center center / 32px;
 	width: 32px;
@@ -179,12 +120,13 @@ export default {
 	animation-direction: alternate;
 }
 
-.slide .bottom-section p {
+.slide p {
 	font-family: "Special Elite";
 	color: #ffffff;
-	font-size: 14px;
-	line-height: 1;
-	width: 70%;
+	font-size: 12px;
+	line-height: 1.5;
+	width:90%;
+	margin: 2.5%;
 	text-align: center;
 }
 .slide .slide-img {
@@ -193,68 +135,45 @@ export default {
 
 /* Mobile Landscape */
 @media only screen and (min-width: 576px) {
-	.slide {
-		border-left: 1px solid white;
-		max-width: 50vw;
-		justify-content: flex-start;
-	}
-	.setContainer {
-		display: flex;
-		height: 100vh;
-	}
-	.slide .bottom-section {
-		justify-content: flex-end;
-	}
-
-	.slide .bottom-section p {
+	.slide p {
 		font-size: 14px;
+	}
+	.slide .slide-img{
+		width: 90%
 	}
 }
 
 /* Tablet Portrait */
 @media only screen and (min-width: 768px) {
-	.setContainer {
-		flex-flow: column nowrap;
-	}
 
-	.slide {
-		border: none;
-		max-width: 100vw;
-	}
-
-	.slide .bottom-section {
-		justify-content: center;
-	}
-	.slide .bottom-section p {
+	.slide p {
 		font-size: 16px;
-		text-align: center;
-	}
 
-	.slide .slide-img {
-		width: 80%;
 	}
 }
 
 /* Tablet Landscape */
 @media only screen and (min-width: 810px) {
-	.setContainer {
-		flex-flow: row nowrap;
+	.slide p {
+		font-size: 18px;
+		width: 80%;
+
 	}
-	.slide {
-		border-left: 1px solid white;
-		max-width: 50vw;
-		justify-content: flex-start;
+		.slide .slide-img{
+		width: 80%
 	}
+
 }
 
 /* Desktop */
 @media only screen and (min-width: 1024px) {
 	.slide .slide-img {
-		width: 100%;
+		width: 70%;
 	}
 
-	.slide .bottom-section p {
-		font-size: 28px;
+	.slide p {
+		font-size: 22px;
+				width: 70%;
 	}
 }
 </style>
