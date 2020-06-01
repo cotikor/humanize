@@ -69,6 +69,8 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Special+Elite&display=swap");
 
+
+
 .slide-wrapper {
 	display: flex;
 	overflow-y: scroll;
@@ -108,7 +110,6 @@ export default {
 
 
 .slide .homeButton {
-	margin-top: 20px;
 	background: url("../assets/images/arrow.png") no-repeat center center / 32px;
 	width: 32px;
 	height: 32px;
