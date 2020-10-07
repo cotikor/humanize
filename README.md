@@ -1,24 +1,11 @@
-# humanize
+# Humanize
 
-## Project setup
-```
-yarn install
-```
+*Refugee crisis educational website*
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+---
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Tech Stack
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Vue 
+- Youtube API
+- CSS
